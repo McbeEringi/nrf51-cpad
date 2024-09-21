@@ -6,7 +6,7 @@
 			text{font-family:monospace;font-size:1px;stroke-width:.05;text-anchor:middle;}
 			#grid{stroke:#fff2;}#grid circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
 			.board{stroke:#fff2;}
-			.board .grid{fill:url(#grid);}
+			.board .grid{fill:url(#grid);stroke:none;}
 		</style>
 		<pattern id="grid" x="-.5" y="-.5" width="1" height="1" patternUnits="userSpaceOnUse">
 			<circle cx=".5" cy=".5" r=".275591"/><path d="M0,.5h1M.5,0v1"/>
