@@ -4,12 +4,14 @@
 			:root{background-color:#036;}
 			*{stroke-width:.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 			text{font-family:monospace;font-size:1px;stroke-width:.05;text-anchor:middle;}
-			#grid{stroke:#fff2;}#grid circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
+			#grid{stroke:#fff2;stroke-dasharray:7 7;animation:anm 2s;}
+			#grid circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
 			.board{stroke:#fff2;}
 			.board .grid{fill:url(#grid);stroke:none;}
+			@keyframes anm{0%{stroke-dashoffset:-7;}100%{stroke-dashoffset:0;}}
 		</style>
 		<pattern id="grid" x="-.5" y="-.5" width="1" height="1" patternUnits="userSpaceOnUse">
-			<circle cx=".5" cy=".5" r=".275591"/><path d="M0,.5h1M.5,0v1"/>
+			<circle cx=".5" cy=".5" r=".275591"/><path d="M-5,.5h7M.5,-3v7"/>
 		</pattern>
 		<g id="board_c" class="board">
 			<rect x="-.5" y="-.5" width="25" height="15" class="grid"/>
