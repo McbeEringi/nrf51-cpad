@@ -12,23 +12,23 @@
 			<circle cx=".5" cy=".5" r=".275591"/><path d="M0,.5h1M.5,0v1"/>
 		</pattern>
 		<g id="board_c" class="board">
-			<rect x="-0.500000" y="-0.500000" width="25.000000" height="15.000000" class="grid"/>
+			<rect x="-.5" y="-.5" width="25" height="15" class="grid"/>
 			<rect x="-2.173228" y="-2.251969" width="28.346457" height="18.503937"/>
-			<circle cx="-0.992126" cy="-1.070866" r=".629921"/><circle cx="-0.992126" cy="15.070866" r=".629921"/>
+			<circle cx=" -.992126" cy="-1.070866" r=".629921"/><circle cx=" -.992126" cy="15.070866" r=".629921"/>
 			<circle cx="24.992126" cy="-1.070866" r=".629921"/><circle cx="24.992126" cy="15.070866" r=".629921"/>
 			<text x="12.5" y="-1">AKIZUKI C</text>
 		</g>
 		<g id="board_d" class="board">
-			<rect x="-0.500000" y="-0.500000" width="17.000000" height="14.000000" class="grid"/>
-			<rect x="-1.251969" y="-0.586614" width="18.503937" height="14.173228"/>
-			<circle cx="-0.267727" cy="6.5" r=".629921"/><circle cx="16.267717" cy="6.5" r=".629921"/>
+			<rect x="-.5" y="-.5" width="17" height="14" class="grid"/>
+			<rect x="-1.251969" y="-.586614" width="18.503937" height="14.173228"/>
+			<circle cx="-.267727" cy="6.5" r=".629921"/><circle cx="16.267717" cy="6.5" r=".629921"/>
 		</g>
 		<g id="board_e" class="board">
-			<rect x="-0.500000" y="-0.500000" width="13.000000" height="8.000000" class="grid"/>
+			<rect x="-.5" y="-.5" width="13" height="8" class="grid"/>
 			<rect x="-1.086614" y="-1.125984" width="14.173228" height="9.251969"/>
 		</g>
 		<g id="board_f" class="board">
-			<rect x="-0.500000" y="-0.500000" width="8.000000" height="6.000000" class="grid"/>
+			<rect x="-.5" y="-.5" width="8" height="6" class="grid"/>
 			<rect x="-1.125984" y="-1.043307" width="9.251969" height="7.086614"/>
 		</g>
 	</defs>
