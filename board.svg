@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="-1 -1 26 16">
+	<defs>
+		<style>
+			:root{background-color:#036;}
+			*{stroke-width:.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+			#pin{fill:#fff;}
+			#grid{stroke:#fff2;}
+			#board_c{fill:url(#grid-25x15);}
+			#board_e{fill:url(#grid-13x8);}
+			#board_f{fill:url(#grid-8x6);}
+			.part{stroke:#fff8;}
+			.oph{opacity:.5;}
+		</style>
+		<circle r=".15" id="pin"/>
+		<rect x="0" y="0" width="1" height="1" id="grid"/>
+		<pattern id="grid-25x15" width=".041667" height=".071444"><use href="#grid"/></pattern>
+		<pattern id="grid-13x8"  width=".083333" height=".142857"><use href="#grid"/></pattern>
+		<pattern id="grid-8x6"   width=".142857" height=".200000"><use href="#grid"/></pattern>
+		<rect id="board_c" width="24" height="14"/>
+		<rect id="board_e" width="12" height=" 7"/>
+		<rect id="board_f" width=" 7" height=" 5"/>
+		<g id="btn">
+			<circle cx="0" cy="0" r="1" class="part"/>
+			<circle cx="0" cy="0" r=".6" class="part oph"/>
+			<use x="0" y="-1" href="#pin"/><use x="0" y="1" href="#pin"/>
+		</g>
+		<g id="btn_dpad">
+			<use x="2" y="0" href="#btn"/><use x="0" y="2" href="#btn"/>
+			<use x="-2" y="0" href="#btn"/><use x="0" y="-2" href="#btn"/>
+		</g>
+		<g id="analog_joystick">
+			<path d="M4,0v-.6l-3.4-3.4h-1.2l-3.4,3.4v1.2l3.4,3.4h1.2l3.4-3.4z" class="part"/>
+			<circle cx="0" cy="-3" r=".7" class="part oph"/>
+			<circle cx="0" cy="0" r="2" class="part oph"/><circle cx="0" cy="0" r="1" class="part oph"/>
+			<use x="2" y="3" href="#pin"/><use x="3" y="3" href="#pin"/><use x="3" y="2" href="#pin"/>
+			<use x="-2" y="3" href="#pin"/><use x="-3" y="3" href="#pin"/><use x="-3" y="2" href="#pin"/>
+		</g>
+	</defs>
+	<use href="#board_c"/>
+	<g>
+		<use x="3" y="3" href="#btn_dpad"/><use x="7" y="1" href="#btn"/>
+		<use x="21" y="3" href="#btn_dpad"/><use x="17" y="1" href="#btn"/>
+		<use x="12" y="5" href="#analog_joystick"/>
+	</g>
+</svg>
+
+
+
