@@ -36,6 +36,8 @@
 		<style>
 			#pin{fill:#fff;}
 			.part{stroke:#fff8;}
+			.lead,.uew{stroke:#fffc;}
+			.uew{stroke-dasharray:.05 .15;}
 			.oph{opacity:.5;}
 		</style>
 		<circle r=".15" id="pin"/>
@@ -44,9 +46,18 @@
 			<circle cx="0" cy="0" r=".6" class="part oph"/>
 			<use x="0" y="-1" href="#pin"/><use x="0" y="1" href="#pin"/>
 		</g>
+		<g id="diode">
+			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-1v2M0-.5l-.3,.6h.6l-.3-.6" class="part"/>
+			<use y="-1" href="#pin"/><use y="1" href="#pin"/>
+		</g>
+		<g id="btn_w_d">
+			<use href="#btn"/><use y="3" href="#diode"/><path d="M0,1v1" class="lead"/>
+		</g>
 		<g id="btn_dpad">
-			<use x="2" y="0" href="#btn"/><use x="0" y="2" href="#btn"/>
-			<use x="-2" y="0" href="#btn"/><use x="0" y="-2" href="#btn"/>
+			<use x="2" y="0" href="#btn_w_d"/>
+			<use x="0" y="2" href="#btn_w_d"/>
+			<use x="-2" y="0" href="#btn_w_d"/>
+			<use x="0" y="-2" href="#btn"/>
 		</g>
 		<g id="analog_joystick">
 			<path d="M4,0v-.6l-3.4-3.4h-1.2l-3.4,3.4v1.2l3.4,3.4h1.2l3.4-3.4z" class="part"/>
@@ -54,12 +65,13 @@
 			<circle cx="0" cy="0" r="2" class="part oph"/><circle cx="0" cy="0" r="1" class="part oph"/>
 			<use x="2" y="3" href="#pin"/><use x="3" y="3" href="#pin"/><use x="3" y="2" href="#pin"/>
 			<use x="-2" y="3" href="#pin"/><use x="-3" y="3" href="#pin"/><use x="-3" y="2" href="#pin"/>
+			<path d="M-3,2h6M-2,3h4" class="uew"/>
 		</g>
 	</defs>
 	<use href="#board_c"/>
 	<g>
-		<use x="3" y="3" href="#btn_dpad"/><use x="7" y="1" href="#btn"/>
-		<use x="21" y="3" href="#btn_dpad"/><use x="17" y="1" href="#btn"/>
+		<use x="3" y="3" href="#btn_dpad"/><use x="7" y="1" href="#btn_w_d"/>
+		<use x="21" y="3" href="#btn_dpad"/><use x="17" y="1" href="#btn_w_d"/>
 		<use x="12" y="5" href="#analog_joystick"/>
 	</g>
 </svg>
