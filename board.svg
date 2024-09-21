@@ -1,14 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="-3 -3 30 20">
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="-3 -5 30 22">
 	<defs>
 		<style>
 			:root{background-color:#036;}
 			*{stroke-width:.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 			text{font-family:monospace;font-size:1px;stroke-width:.05;text-anchor:middle;}
-			#grid{stroke:#fff2;stroke-dasharray:7 7;animation:anm 2s;}
-			#grid circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
+			#grid{stroke:#fff2;}#grid 
+			circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
 			.board{stroke:#fff2;}
 			.board .grid{fill:url(#grid);stroke:none;}
-			@keyframes anm{0%{stroke-dashoffset:-7;}100%{stroke-dashoffset:0;}}
 		</style>
 		<pattern id="grid" x="-.5" y="-.5" width="1" height="1" patternUnits="userSpaceOnUse">
 			<circle cx=".5" cy=".5" r=".275591"/><path d="M-5,.5h7M.5,-3v7"/>
@@ -48,18 +47,33 @@
 			<circle cx="0" cy="0" r=".6" class="part oph"/>
 			<use x="0" y="-1" href="#pin"/><use x="0" y="1" href="#pin"/>
 		</g>
+		<g id="btn_edge">
+			<rect x="-1" y="-3.451969" width="2" height="1.2" class="part"/>
+			<rect x="-.6" y="-4.051969" width="1.2" height=".6" class="part oph"/>
+			<path d="M-1,-2.251969v2.251969M1,-2.251969v2.251969" class="lead"/>
+			<use x="-1" y="0" href="#pin"/><use x="1" y="0" href="#pin"/>
+		</g>
 		<g id="diode">
-			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-1v2M0-.5l-.3,.6h.6l-.3-.6" class="part"/>
+			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-.5l-.3,.6h.6l-.3-.6" class="part"/>
+			<path d="M0-1v2" class="part"/>
 			<use y="-1" href="#pin"/><use y="1" href="#pin"/>
+		</g>
+		<g id="diode_r">
+			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-.5l-.3,.6h.6l-.3-.6" class="part" transform="translate(0,-.5)rotate(63.43494882292201)"/>
+			<path d="M1-1l-2,1" class="part"/>
+			<use x="1" y="-1" href="#pin"/><use x="-1" href="#pin"/>
 		</g>
 		<g id="btn_w_d">
 			<use href="#btn"/><use y="3" href="#diode"/><path d="M0,1v1" class="lead"/>
 		</g>
-		<g id="btn_dpad">
+		<g id="btns">
 			<use x="2" y="0" href="#btn_w_d"/>
 			<use x="0" y="2" href="#btn_w_d"/>
 			<use x="-2" y="0" href="#btn_w_d"/>
-			<use x="0" y="-2" href="#btn"/>
+			<use x="0" y="-2" href="#btn"/><use x="-2" y="-2" href="#diode_r"/><path d="M-1-3h1" class="lead"/>
+			<use x="4" y="-2" href="#btn_w_d"/>
+			<use x="4" y="-3" href="#btn_edge"/><use x="6" y="-1" href="#diode"/><path d="M5-3l1,1" class="lead"/>
+			<path d="M-2-1h2v2l2-2" class="uew"/>
 		</g>
 		<g id="analog_joystick">
 			<path d="M4,0v-.6l-3.4-3.4h-1.2l-3.4,3.4v1.2l3.4,3.4h1.2l3.4-3.4z" class="part"/>
@@ -72,8 +86,9 @@
 	</defs>
 	<use href="#board_c"/>
 	<g>
-		<use x="3" y="3" href="#btn_dpad"/><use x="7" y="1" href="#btn_w_d"/>
-		<use x="21" y="3" href="#btn_dpad"/><use x="17" y="1" href="#btn_w_d"/>
+		<use x="3" y="3" href="#btns"/>
+		<use x="-21" y="3" href="#btns" transform="scale(-1,1)"/>
+		<path d="M6,0h1q1.5,2,4,2h4l2-2h1" class="uew"/>
 		<use x="12" y="5" href="#analog_joystick"/>
 	</g>
 </svg>
