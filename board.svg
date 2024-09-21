@@ -56,12 +56,12 @@
 		<g id="diode">
 			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-.5l-.3,.6h.6l-.3-.6" class="part"/>
 			<path d="M0-1v2" class="part"/>
-			<use y="-1" href="#pin"/><use y="1" href="#pin"/>
+			<use y="1" href="#pin"/>
 		</g>
 		<g id="diode_r">
 			<path d="M-.5,-.7v1.4h1v-1.4zM-.5-.5h1M0-.5l-.3,.6h.6l-.3-.6" class="part" transform="translate(0,-.5)rotate(63.43494882292201)"/>
 			<path d="M1-1l-2,1" class="part"/>
-			<use x="1" y="-1" href="#pin"/><use x="-1" href="#pin"/>
+			<use x="-1" href="#pin"/>
 		</g>
 		<g id="btn_w_d">
 			<use href="#btn"/><use y="3" href="#diode"/><path d="M0,1v1" class="lead"/>
