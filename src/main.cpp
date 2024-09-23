@@ -11,6 +11,7 @@ const uint8_t
 	bus_pin[]={6,21,2},
 	st_pin[]={4,5};
 
+uint8_t mode=0;
 uint16_t btn=0,btn_p=btn,st_o[2];
 uint32_t loopt=0;
 int16_t st[3];
@@ -49,6 +50,7 @@ void setup(){
 	FOR(i,2){pinMode(st_pin[i],INPUT);st_o[i]=analogRead(st_pin[i]);}
 	
 	if(get_btn()==0x0c0)hidp.clearBondStoreData();
+	if(get_btn()==0x030)mode=1;
 
 	hidp.setReportIdOffset(1);
 	hidp.setDeviceName("nRF51-CPAD");
@@ -65,25 +67,49 @@ void loop(){
 	FOR(p,12){
 		if((btn_p^btn)&(1<<p)){
 			uint8_t x=(btn>>p)&1;
-			switch(p){
-				//    6  7
-				//  b 4  5 3 
-				// a 8    0 2
-				//  9      1 
-				case 2:{if(x)kbd.press(KEYCODE_SPACE);else kbd.release(KEYCODE_SPACE);break;}// A
-				case 1:{if(x)kbd.press(KEYCODE_RIGHT_SHIFT,KEYCODE_MOD_RIGHT_SHIFT);else kbd.release(KEYCODE_RIGHT_SHIFT,KEYCODE_MOD_RIGHT_SHIFT);break;}// B
-				case 3:{if(x)mouse.press(MOUSEBTN_RIGHT_MASK);else mouse.release(MOUSEBTN_RIGHT_MASK);break;}// X
-				case 0:{if(x)mouse.press(MOUSEBTN_LEFT_MASK);else mouse.release(MOUSEBTN_LEFT_MASK);break;}// Y
+			switch(mode){
+				case 0:{// minecraft mode
+					switch(p){
+						//    6  7
+						//  b 4  5 3 
+						// a 8    0 2
+						//  9      1 
+						case 2:{if(x)kbd.press(KEYCODE_SPACE);else kbd.release(KEYCODE_SPACE);break;}// A
+						case 1:{if(x)kbd.press(KEYCODE_RIGHT_SHIFT,KEYCODE_MOD_RIGHT_SHIFT);else kbd.release(KEYCODE_RIGHT_SHIFT,KEYCODE_MOD_RIGHT_SHIFT);break;}// B
+						case 3:{if(x)mouse.press(MOUSEBTN_RIGHT_MASK);else mouse.release(MOUSEBTN_RIGHT_MASK);break;}// X
+						case 0:{if(x)mouse.press(MOUSEBTN_LEFT_MASK);else mouse.release(MOUSEBTN_LEFT_MASK);break;}// Y
 
-				case 4:{if(x)kbd.press(KEYCODE_ESC);else kbd.release(KEYCODE_ESC);break;}// -
-				case 5:{break;}// +
-				case 6:{if(x)mouse.move(0,0,1);break;}// L
-				case 7:{if(x)mouse.move(0,0,-1);break;}// R
+						case 4:{if(x)kbd.press(KEYCODE_ESC);else kbd.release(KEYCODE_ESC);break;}// -
+						case 5:{break;}// +
+						case 6:{if(x)mouse.move(0,0,1);break;}// L
+						case 7:{if(x)mouse.move(0,0,-1);break;}// R
 
-				case 11:{if(x)kbd.press(KEYCODE_W);else kbd.release(KEYCODE_W);break;}// W
-				case 10:{if(x)kbd.press(KEYCODE_A);else kbd.release(KEYCODE_A);break;}// A
-				case 9: {if(x)kbd.press(KEYCODE_S);else kbd.release(KEYCODE_S);break;}// S
-				case 8: {if(x)kbd.press(KEYCODE_D);else kbd.release(KEYCODE_D);break;}// D
+						case 11:{if(x)kbd.press(KEYCODE_W);else kbd.release(KEYCODE_W);break;}// W
+						case 10:{if(x)kbd.press(KEYCODE_A);else kbd.release(KEYCODE_A);break;}// A
+						case 9: {if(x)kbd.press(KEYCODE_S);else kbd.release(KEYCODE_S);break;}// S
+						case 8: {if(x)kbd.press(KEYCODE_D);else kbd.release(KEYCODE_D);break;}// D
+					}
+					break;
+				}
+				case 1:{// ds mode
+					switch(p){
+						case 2:{if(x)kbd.press(KEYCODE_A);else kbd.release(KEYCODE_A);break;}// A
+						case 1:{if(x)kbd.press(KEYCODE_B);else kbd.release(KEYCODE_B);break;}// B
+						case 3:{if(x)kbd.press(KEYCODE_X);else kbd.release(KEYCODE_X);break;}// X
+						case 0:{if(x)kbd.press(KEYCODE_Y);else kbd.release(KEYCODE_Y);break;}// Y
+
+						case 4:{if(x)kbd.press(KEYCODE_SQBRAK_LEFT);else kbd.release(KEYCODE_SQBRAK_LEFT);break;}// -
+						case 5:{if(x)kbd.press(KEYCODE_SQBRAK_RIGHT);else kbd.release(KEYCODE_SQBRAK_RIGHT);break;}// +
+						case 6:{if(x)kbd.press(KEYCODE_L);else kbd.release(KEYCODE_L);break;}// L
+						case 7:{if(x)kbd.press(KEYCODE_R);else kbd.release(KEYCODE_R);break;}// R
+
+						case 11:{if(x)kbd.press(KEYCODE_ARROW_UP);else kbd.release(KEYCODE_ARROW_UP);break;}// W
+						case 10:{if(x)kbd.press(KEYCODE_ARROW_LEFT);else kbd.release(KEYCODE_ARROW_LEFT);break;}// A
+						case 9: {if(x)kbd.press(KEYCODE_ARROW_DOWN);else kbd.release(KEYCODE_ARROW_DOWN);break;}// S
+						case 8: {if(x)kbd.press(KEYCODE_ARROW_RIGHT);else kbd.release(KEYCODE_ARROW_RIGHT);break;}// D
+					}
+					break;
+				}
 			}
 		}
 	}
