@@ -3,7 +3,7 @@
 		<style>
 			:root{background-color:#036;}
 			*{stroke-width:.1;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-			text{font-family:monospace;font-size:1px;stroke-width:.05;text-anchor:middle;}
+			text{font-family:monospace;font-size:1px;stroke-width:.05;text-anchor:middle;dominant-baseline:central;}
 			#grid{stroke:#fff2;}#grid 
 			circle{stroke-width:.157480;stroke:#fff1;opacity:.5;}
 			.board{stroke:#fff2;}
@@ -17,7 +17,7 @@
 			<rect x="-2.173228" y="-2.251969" width="28.346457" height="18.503937"/>
 			<circle cx=" -.992126" cy="-1.070866" r=".629921"/><circle cx=" -.992126" cy="15.070866" r=".629921"/>
 			<circle cx="24.992126" cy="-1.070866" r=".629921"/><circle cx="24.992126" cy="15.070866" r=".629921"/>
-			<text x="12.5" y="-1">AKIZUKI C</text>
+			<text x="12.5" y="-1.2">AKIZUKI C</text>
 		</g>
 		<g id="board_d" class="board">
 			<rect x="-.5" y="-.5" width="17" height="14" class="grid"/>
